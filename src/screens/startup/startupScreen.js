@@ -36,7 +36,7 @@ export default function StartUpScreen(props) {
                         >
                         </TextInput>
                         <TouchableOpacity
-                            onPress={() => props.navigation.navigate("WeatherDetails", {name: city})}
+                            onPress={() => props.navigation.navigate("WeatherDetails", { name: city })}
                         >
                             <Icon
                                 name="search"
