@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1024635573266",
+    "project_id": "skysync-b3a78",
+    "storage_bucket": "skysync-b3a78.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1024635573266:android:97ea870ea60a60c34334cb",
+        "android_client_info": {
+          "package_name": "com.skysync"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJBn_mwYKzl06g6751-5R86B9m0erOL-E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
