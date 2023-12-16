@@ -59,15 +59,13 @@ export default function RegisterScreen({ navigation }) {
 
         // Sign-in the user with the credential
         //return auth().signInWithCredential(googleCredential);
-        return new Promise((resolve,  reject )  => { 
+        return new Promise((resolve, reject ) => { 
             auth()
             .signInWithCredential(googleCredential)
-            .then(() => {resolve(navigation.navigate('Home'))})
+            .then(() => navigation.navigate('Home') )
             .catch(error => {
                 reject(error); // Reject the promise with the error if there's an issue
-            });
-
-        
+       });
         })
     }
 
