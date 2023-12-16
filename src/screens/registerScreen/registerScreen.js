@@ -9,8 +9,11 @@ import facebook from "../../../assets/Facebook.png";
 import google from "../../../assets/Google.png";
 import apple from "../../../assets/Apple.png";
 import auth from "@react-native-firebase/auth";
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
 
-
+GoogleSignin.configure({
+    webClientId: '1024635573266-mjaabcrrt93fnqabd9n1120f60jg655e.apps.googleusercontent.com',
+});
 
 export default function RegisterScreen({ navigation }) {
 
@@ -45,6 +48,34 @@ export default function RegisterScreen({ navigation }) {
             });
     }
 
+    async function onGoogleButtonPress() {
+        // Check if your device supports Google Play
+        await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
+        // Get the users ID token
+        const { idToken } = await GoogleSignin.signIn();
+
+        // Create a Google credential with the token
+        const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+
+        // Sign-in the user with the credential
+        //return auth().signInWithCredential(googleCredential);
+        return new Promise((resolve,  reject )  => { 
+            auth()
+            .signInWithCredential(googleCredential)
+            .then(() => {resolve(navigation.navigate('Home'))})
+            .catch(error => {
+                reject(error); // Reject the promise with the error if there's an issue
+            });
+
+        
+        })
+    }
+
+    async function steps() {
+        await onGoogleButtonPress();
+        return navigation.navigate('Home');
+    }
+
     return (
         <ScrollView>
             <SafeAreaView style={registerStyles.container}>
@@ -63,7 +94,9 @@ export default function RegisterScreen({ navigation }) {
                                 source={facebook}
                             />
                         </TouchableOpacity>
-                        <TouchableOpacity style={{ borderWidth: 2, borderRadius: 10, borderColor: '#ddd', paddingVertical: 10, paddingHorizontal: 30 }}>
+                        <TouchableOpacity style={{ borderWidth: 2, borderRadius: 10, borderColor: '#ddd', paddingVertical: 10, paddingHorizontal: 30 }}
+                            onPress={() => onGoogleButtonPress().then(()=> console.log("successful login"))}
+                        >
                             <Image
                                 style={registerStyles.cLogo}
                                 source={google}
@@ -147,7 +180,7 @@ export default function RegisterScreen({ navigation }) {
                     /> */}
 
                     <TouchableOpacity style={registerStyles.buttonTouch}
-                    onPress={createUser}
+                        onPress={createUser}
                     >
                         <Text style={registerStyles.buttonText}>Sign Up</Text>
                     </TouchableOpacity>

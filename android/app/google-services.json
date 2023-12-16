@@ -12,7 +12,20 @@
           "package_name": "com.skysync"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "1024635573266-mjaabcrrt93fnqabd9n1120f60jg655e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.skysync",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "1024635573266-24qqo5f7al48cf33t3paih9u57e3sj7a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAJBn_mwYKzl06g6751-5R86B9m0erOL-E"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1024635573266-24qqo5f7al48cf33t3paih9u57e3sj7a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
