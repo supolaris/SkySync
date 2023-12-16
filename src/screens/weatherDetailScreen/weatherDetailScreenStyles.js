@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import { deviceHeight } from "../../components/dimensions";
 
-export const weatherDetailsStyle = StyleSheet.create({
+export const weatherDetailScreenStyle = StyleSheet.create({
 
     detailsView: {
         flexDirection: 'column',

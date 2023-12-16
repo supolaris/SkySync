@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import { deviceHeight, deviceWidth } from "../../components/dimensions";
 
-export const startUpSyles = StyleSheet.create({
+export const homeScreenSyles = StyleSheet.create({
     constainer: {
         flex: 1,
         height: deviceHeight,

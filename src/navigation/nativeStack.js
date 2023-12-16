@@ -1,9 +1,11 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import StartUpScreen from "../screens/startup/startupScreen";
-import weatherDetails from "../screens/weatherdetails/weatherDetails";
-import FirstScreen from "../screens/firstScreen/firstScreen";
+import HomeScreen from "../screens/homeScreen/homeScreen";
+import WeatherDetailsScreen from "../screens/weatherDetailScreen/weatherDetailScreen";
+import LoginScreen from "../screens/loginScreen/loginScreen";
+import StartUpScreen from "../screens/startUpScreen/startUpScreen";
+import RegisterScreen from "../screens/registerScreen/registerScreen";
 
 export default function NativeStack() {
 
@@ -11,18 +13,30 @@ export default function NativeStack() {
 
     return (
         <NavigationContainer>
-            <NativeStack.Navigator>
-                <NativeStack.Screen
-                    name="FirstScreen"
-                    component={FirstScreen}
-                />
+            <NativeStack.Navigator
+                screenOptions={{
+                    headerShown: false
+                }}
+            >
                 <NativeStack.Screen
                     name="StartUp"
                     component={StartUpScreen}
                 />
                 <NativeStack.Screen
-                    name="WeatherDetails"
-                    component={weatherDetails}
+                    name="Register"
+                    component={RegisterScreen}
+                />
+                <NativeStack.Screen
+                    name="Login"
+                    component={LoginScreen}
+                />
+                <NativeStack.Screen
+                    name="Home"
+                    component={HomeScreen}
+                />
+                <NativeStack.Screen
+                    name="Weather"
+                    component={WeatherDetailsScreen}
                 />
             </NativeStack.Navigator>
         </NavigationContainer>

@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
-import { startUpSyles } from "./startupScreenStyles";
+import { homeScreenSyles } from "./homeScreenStyles";
 import Icon from "react-native-vector-icons/Ionicons";
 
 
-export default function StartUpScreen(props) {
+export default function HomeScreen(props) {
 
     const [city, setCity] = useState("");
 
     return (
-        <View style={startUpSyles.constainer}>
+        <View style={homeScreenSyles.constainer}>
 
-            <View style={startUpSyles.aboveIcon}>
-                <View style={startUpSyles.icon}>
+            <View style={homeScreenSyles.aboveIcon}>
+                <View style={homeScreenSyles.icon}>
                     <Icon
                         name="menu"
                         size={45}
@@ -20,19 +20,19 @@ export default function StartUpScreen(props) {
                     />
                     <Image
                         source={require('../../../assets/profile.png')}
-                        style={startUpSyles.profileImage}
+                        style={homeScreenSyles.profileImage}
                     />
                 </View>
-                <View style={startUpSyles.textView}>
-                    <Text style={startUpSyles.title}>SkySync Weather</Text>
-                    <Text style={startUpSyles.description}>Search The City By Name</Text>
-                    <View style={startUpSyles.searchBox}>
+                <View style={homeScreenSyles.textView}>
+                    <Text style={homeScreenSyles.title}>SkySync Weather</Text>
+                    <Text style={homeScreenSyles.description}>Search The City By Name</Text>
+                    <View style={homeScreenSyles.searchBox}>
                         <TextInput
                             value={city}
                             onChangeText={(val) => setCity(val)}
                             placeholder="Write City Name"
                             placeholderTextColor="#ffffff"
-                            style={startUpSyles.textInput}
+                            style={homeScreenSyles.textInput}
                         >
                         </TextInput>
                         <TouchableOpacity

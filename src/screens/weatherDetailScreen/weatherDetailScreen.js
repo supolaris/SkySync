@@ -1,16 +1,16 @@
 import { View, Text, Image } from 'react-native';
 import React, { useEffect, useState } from 'react';
-import { startUpSyles } from '../startup/startupScreenStyles';
+import { startUpSyles } from '../homeScreen/homeScreenStyles';
 import Icon from "react-native-vector-icons/Ionicons";
-import { weatherDetailsStyle } from './weatherDetailsStyles';
+import { weatherDetailScreenStyle } from './weatherDetailScreenStyles';
 
-export default function WeatherDetails(props) {
+export default function WeatherDetailsScreen(props) {
     const [data, setData] = useState("");
     const { name } = props.route.params;
     const MyData = ({ value, title }) =>
         <View>
-            <Text style={weatherDetailsStyle.data1}>{title}</Text>
-            <Text style={weatherDetailsStyle.data1}>{value}</Text>
+            <Text style={weatherDetailScreenStyle.data1}>{title}</Text>
+            <Text style={weatherDetailScreenStyle.data1}>{value}</Text>
         </View>
 
     useEffect(() => {
@@ -21,9 +21,9 @@ export default function WeatherDetails(props) {
     }, []);
 
     return (
-        <View style={startUpSyles.constainer}>
-            <View style={startUpSyles.aboveIcon}>
-                <View style={startUpSyles.icon}>
+        <View style={weatherDetailScreenStyle.constainer}>
+            <View style={weatherDetailScreenStyle.aboveIcon}>
+                <View style={weatherDetailScreenStyle.icon}>
                     <Icon
                         name="menu"
                         size={45}
@@ -31,20 +31,20 @@ export default function WeatherDetails(props) {
                     />
                     <Image
                         source={require('../../../assets/profile.png')}
-                        style={startUpSyles.profileImage}
+                        style={weatherDetailScreenStyle.profileImage}
                     />
                 </View>
-                <View style={startUpSyles.textView}>
-                    <Text style={startUpSyles.title}>SkySync Weather</Text>
+                <View style={weatherDetailScreenStyle.textView}>
+                    <Text style={weatherDetailScreenStyle.title}>SkySync Weather</Text>
                 </View>
                 {
                     data ? (
-                        <View style={weatherDetailsStyle.detailsView}>
-                            <View style={weatherDetailsStyle.detailsInnerView}>
-                                <Text style={weatherDetailsStyle.cityName}>{name}</Text>
-                                <Text style={weatherDetailsStyle.data1}>{data['weather'][0]['main']}</Text>
+                        <View style={weatherDetailScreenStyle.detailsView}>
+                            <View style={weatherDetailScreenStyle.detailsInnerView}>
+                                <Text style={weatherDetailScreenStyle.cityName}>{name}</Text>
+                                <Text style={weatherDetailScreenStyle.data1}>{data['weather'][0]['main']}</Text>
                             </View>
-                            <Text style={weatherDetailsStyle.data1}>{(data['main']['temp'] - 273).toFixed(2)}&deg; C</Text>
+                            <Text style={weatherDetailScreenStyle.data1}>{(data['main']['temp'] - 273).toFixed(2)}&deg; C</Text>
                             <View style={{ flexDirection: 'row' }}>
                                 <MyData value={data['wind']['speed']} title='Wind' />
                                 <MyData value={data['main']['pressure']} title='Pressure' />

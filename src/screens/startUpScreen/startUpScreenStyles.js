@@ -1,14 +1,16 @@
 import { StyleSheet } from "react-native";
 
-export const firstScreenStyles = StyleSheet.create({
+export const startUpScreenStyles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        backgroundColor: 'pink'
+        backgroundColor: '#e3e8e4',
+       //justifyContent: 'flex-start'
+
     },
     pressable: {
         padding: 20,
-        backgroundColor: '#880000',
+        backgroundColor: '#748cf1',
         borderRadius: 20,
         width: '70%',
     },
@@ -16,5 +18,15 @@ export const firstScreenStyles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 18,
         color: "#ffffff"
+    },
+    view1: {
+        flex: 1,
+
+    },
+    view2: {
+        width: '100%',
+        alignItems: 'center'
+    
+
     }
 })
