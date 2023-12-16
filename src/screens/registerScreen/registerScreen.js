@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, Image, SafeAreaView, TextInput, TouchableOpacity, ScrollView } from "react-native";
 import { registerStyles } from "./registerScreenStyles";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
@@ -11,13 +11,16 @@ import apple from "../../../assets/Apple.png";
 import auth from "@react-native-firebase/auth";
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 
-GoogleSignin.configure({
-    webClientId: '1024635573266-mjaabcrrt93fnqabd9n1120f60jg655e.apps.googleusercontent.com',
-});
+
 
 export default function RegisterScreen({ navigation }) {
 
-
+    useEffect(()=> {
+        GoogleSignin.configure({
+            webClientId: '1024635573266-24qqo5f7al48cf33t3paih9u57e3sj7a.apps.googleusercontent.com',
+        }, []);
+    })
+    
     const onLoginPressed = () => {
         navigation.navigate('Login')
     }
@@ -43,10 +46,30 @@ export default function RegisterScreen({ navigation }) {
                 if (error.code === 'auth/invalid-email') {
                     console.log('That email address is invalid!');
                 }
-
                 console.error(error);
             });
     }
+
+    // async function onGoogleButtonPress() {
+    //     // Check if your device supports Google Play
+    //     await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
+    //     // Get the users ID token
+    //     const { idToken } = await GoogleSignin.signIn();
+
+    //     // Create a Google credential with the token
+    //     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+
+    //     // Sign-in the user with the credential
+    //     //return auth().signInWithCredential(googleCredential);
+    //     return new Promise((resolve, reject ) => { 
+    //         auth()
+    //         .signInWithCredential(googleCredential)
+    //         .then(() => navigation.navigate('Home'))
+    //         .catch(error => {
+    //             reject(error); // Reject the promise with the error if there's an issue
+    //    });
+    //     })
+    // }
 
     async function onGoogleButtonPress() {
         // Check if your device supports Google Play
@@ -58,20 +81,7 @@ export default function RegisterScreen({ navigation }) {
         const googleCredential = auth.GoogleAuthProvider.credential(idToken);
 
         // Sign-in the user with the credential
-        //return auth().signInWithCredential(googleCredential);
-        return new Promise((resolve, reject ) => { 
-            auth()
-            .signInWithCredential(googleCredential)
-            .then(() => navigation.navigate('Home') )
-            .catch(error => {
-                reject(error); // Reject the promise with the error if there's an issue
-       });
-        })
-    }
-
-    async function steps() {
-        await onGoogleButtonPress();
-        return navigation.navigate('Home');
+        return auth().signInWithCredential(googleCredential).then(() => navigation.navigate("Home"));
     }
 
     return (
@@ -93,7 +103,7 @@ export default function RegisterScreen({ navigation }) {
                             />
                         </TouchableOpacity>
                         <TouchableOpacity style={{ borderWidth: 2, borderRadius: 10, borderColor: '#ddd', paddingVertical: 10, paddingHorizontal: 30 }}
-                            onPress={() => onGoogleButtonPress().then(()=> console.log("successful login"))}
+                            onPress={() => onGoogleButtonPress()}
                         >
                             <Image
                                 style={registerStyles.cLogo}

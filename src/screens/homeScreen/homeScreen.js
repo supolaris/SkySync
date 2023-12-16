@@ -1,12 +1,19 @@
 import React, { useState } from "react";
-import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, Image, TextInput, TouchableOpacity, Button } from "react-native";
 import { homeScreenSyles } from "./homeScreenStyles";
 import Icon from "react-native-vector-icons/Ionicons";
+import auth from '@react-native-firebase/auth';
 
-
-export default function HomeScreen(props) {
+export default function HomeScreen({ props, navigation }) {
 
     const [city, setCity] = useState("");
+
+    const signOut = () => {
+        auth()
+            .signOut()
+            .then(() => console.log('User signed out!'))
+            .then(() => navigation.navigate("StartUp"))
+    }
 
     return (
         <View style={homeScreenSyles.constainer}>
@@ -25,6 +32,10 @@ export default function HomeScreen(props) {
                 </View>
                 <View style={homeScreenSyles.textView}>
                     <Text style={homeScreenSyles.title}>SkySync Weather</Text>
+                    <Button
+                        title="sign out"
+                        onPress={signOut}
+                    />
                     <Text style={homeScreenSyles.description}>Search The City By Name</Text>
                     <View style={homeScreenSyles.searchBox}>
                         <TextInput
