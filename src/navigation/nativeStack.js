@@ -19,6 +19,10 @@ export default function NativeStack() {
                 }}
             >
                 <NativeStack.Screen
+                    name="Home"
+                    component={HomeScreen}
+                />
+                <NativeStack.Screen
                     name="StartUp"
                     component={StartUpScreen}
                 />
@@ -30,10 +34,7 @@ export default function NativeStack() {
                     name="Login"
                     component={LoginScreen}
                 />
-                <NativeStack.Screen
-                    name="Home"
-                    component={HomeScreen}
-                />
+                
                 <NativeStack.Screen
                     name="Weather"
                     component={WeatherDetailsScreen}

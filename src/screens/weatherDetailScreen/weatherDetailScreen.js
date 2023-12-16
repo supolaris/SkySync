@@ -1,8 +1,8 @@
 import { View, Text, Image } from 'react-native';
 import React, { useEffect, useState } from 'react';
-import { startUpSyles } from '../homeScreen/homeScreenStyles';
 import Icon from "react-native-vector-icons/Ionicons";
 import { weatherDetailScreenStyle } from './weatherDetailScreenStyles';
+
 
 export default function WeatherDetailsScreen(props) {
     const [data, setData] = useState("");
