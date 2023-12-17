@@ -8,7 +8,7 @@ export const firstLoginScreenStyles = StyleSheet.create({
 
     },
     view1: {
-        flex: 2
+        flex: 3
 
     },
     titleView: {
@@ -17,7 +17,7 @@ export const firstLoginScreenStyles = StyleSheet.create({
     title: {
         fontSize: 20,
         color: '#000000',
-        marginTop: -90,
+        marginTop: -50,
         marginLeft: -15,
         textAlign: 'center',
 
@@ -25,11 +25,13 @@ export const firstLoginScreenStyles = StyleSheet.create({
     view2: {
         flex: 5,
         width: '80%',
-        backgroundColor: '#ffffff',
-        borderRadius: 10,
+        //backgroundColor: '#ffffff',
+        backgroundColor: (0, 2, 255, 1.1),
+        borderRadius: 3,
         elevation: 8,
         shadowColor: 'black',
-        //justifyContent: 'space-evenly',
+        justifyContent: 'space-evenly',
+        marginTop: 50,
 
 
     },
@@ -53,10 +55,28 @@ export const firstLoginScreenStyles = StyleSheet.create({
         width: '70%',
         color: 'black',
         textAlign: 'center'
-        
+
 
     },
     socialLoginView: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        marginBottom: 40,
+        marginTop: 15,
+
+    },
+    cLogo: {
+        height: 25,
+        width: 25,
+        padding: 10,
+    },
+    socialTouch: {
+        borderWidth: 2,
+        borderRadius: 10,
+        borderColor: '#dddddd',
+        paddingVertical: 10,
+        paddingHorizontal: 30,
+        marginHorizontal: 5
 
     },
     touchView: {
@@ -67,7 +87,7 @@ export const firstLoginScreenStyles = StyleSheet.create({
     touch: {
         flexDirection: 'row',
         paddingVertical: 12,
-        paddingHorizontal: 20,
+        paddingHorizontal: 40,
         borderRadius: 20,
         backgroundColor: '#000000',
         alignItems: 'center',
@@ -78,7 +98,8 @@ export const firstLoginScreenStyles = StyleSheet.create({
         textAlign: 'center'
     },
     view3: {
-        flex: 1
+        flex: 1,
+        marginTop: 15
 
     }
 })
