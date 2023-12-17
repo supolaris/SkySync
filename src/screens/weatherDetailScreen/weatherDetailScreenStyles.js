@@ -2,18 +2,11 @@ import { StyleSheet } from "react-native";
 import { deviceHeight, deviceWidth } from "../../components/dimensions";
 
 export const weatherDetailScreenStyle = StyleSheet.create({
-
-    detailsView: {
-        flexDirection: 'column',
-        justifyContent: 'space-evenly',
-        alignItems: 'center',
-        deviceHeight: deviceHeight - 100
-
-
-    },
-    detailsInnerView: {
-        width: '100%'
-
+    container: {
+        flex: 1,
+        height: deviceHeight,
+        width: deviceWidth,
+        backgroundColor: '#999999'
     },
     cityName: {
         fontSize: 40,
@@ -24,60 +17,30 @@ export const weatherDetailScreenStyle = StyleSheet.create({
         fontSize: 22,
         color: '#ffffff'
     },
-    constainer: {
-        flex: 1,
-        height: deviceHeight,
-        width: deviceWidth,
-        backgroundColor: '#BBAB8C'
-    },
-    aboveIcon: {
-        position: 'absolute',
-
-    },
-    icon: {
-        paddingHorizontal: 20,
-        paddingVertical: 20,
+    row1: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        width: deviceWidth - 20
+        justifyContent: 'space-around',
+        //borderTopWidth: 1,
+        borderBottomWidth: 1,
+        borderBottomColor: 'white',
+        paddingVertical: 10
+    },
+    element1: {
 
     },
-    profileImage: {
-        height: 40,
-        width: 40,
-        borderRadius: 50
+    element2: {
 
     },
-    textView: {
-        marginTop: 100,
-        paddingHorizontal: 30,
+    valueTitle: {
+        fontSize: 20,
+        color: 'white',
 
 
     },
-    title: {
-        fontSize: 40,
-        //textAlign: 'center'
-    },
-    description: {
-        fontSize: 22,
-        //textAlign: 'center',
-        fontWeight: 'bold'
-    },
-    searchBox: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginTop: 10,
-        paddingHorizontal: 10,
-        borderWidth: 1,
-        borderRadius: 20,
-        borderColor: "#ffffff"
+    value: {
+        fontSize: 20,
+        color: 'white',
 
-    },
-    textInput: {
-        paddingHorizontal: 10,
-        color: "#ffffff"
     }
-    
+
 })
