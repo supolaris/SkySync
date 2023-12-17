@@ -8,6 +8,8 @@ import StartUpScreen from "../screens/startUpScreen/startUpScreen";
 import RegisterScreen from "../screens/registerScreen/registerScreen";
 import StartScreen from "../screens/startScreen/startScreen";
 import FirstLoginScreen from "../screens/firstLoginScreen/firstLoginScreen";
+import SecondLoginScreen from "../screens/secondLoginScreen/secondLoginScreen";
+import SearchScreen from "../screens/searchScreen/searchScreen";
 
 export default function NativeStack() {
 
@@ -21,16 +23,25 @@ export default function NativeStack() {
                 }}
             >
                 <NativeStack.Screen
+                    name="Search"
+                    component={SearchScreen}
+                />
+                <NativeStack.Screen
                     name="FirstLogin"
                     component={FirstLoginScreen}
                 />
+                
                 <NativeStack.Screen
-                    name="Start"
-                    component={StartScreen}
+                    name="SecondLogin"
+                    component={SecondLoginScreen}
                 />
                 <NativeStack.Screen
                     name="Home"
                     component={HomeScreen}
+                />
+                <NativeStack.Screen
+                    name="Start"
+                    component={StartScreen}
                 />
                 <NativeStack.Screen
                     name="StartUp"

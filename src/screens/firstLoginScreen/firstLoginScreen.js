@@ -7,9 +7,13 @@ import google from "../../../assets/Google.png";
 import apple from "../../../assets/Apple.png";
 import { startScreenStyles } from '../startScreen/startScreenStyles';
 
-export default function FirstLoginScreen() {
+export default function FirstLoginScreen({ navigation }) {
 
     const [email, setEmail] = useState('');
+
+    const onNextPressed = () => {
+        navigation.navigate("SecondLogin")
+    }
 
     return (
         <View style={firstLoginScreenStyles.container}>
@@ -25,7 +29,7 @@ export default function FirstLoginScreen() {
                     <TextInput
                         style={firstLoginScreenStyles.textInput}
                         placeholder='Enter your Email'
-                        placeholderTextColor="gray"
+                        placeholderTextColor="black"
                         onChangeText={value => setEmail(value)}
                     >
                     </TextInput>
@@ -45,17 +49,19 @@ export default function FirstLoginScreen() {
                         </TouchableOpacity>
                     </View>
                     <View style={firstLoginScreenStyles.touchView}>
-                        <TouchableOpacity style={firstLoginScreenStyles.touch}>
+                        <TouchableOpacity style={firstLoginScreenStyles.touch}
+                            onPress={onNextPressed}
+                        >
                             <Text style={firstLoginScreenStyles.touchText}>NEXT</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
             </View>
             <View style={firstLoginScreenStyles.view3}>
-            <TouchableOpacity style={startScreenStyles.textTouch}
+                <TouchableOpacity style={firstLoginScreenStyles.textTouch}
 
                 >
-                    <Text style={startScreenStyles.text}>Sign Up</Text>
+                    <Text style={firstLoginScreenStyles.text}>Sign Up</Text>
 
                 </TouchableOpacity>
             </View>

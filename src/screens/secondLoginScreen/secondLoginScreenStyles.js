@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-export const firstLoginScreenStyles = StyleSheet.create({
+export const secondLoginScreenStyles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
@@ -52,11 +52,17 @@ export const firstLoginScreenStyles = StyleSheet.create({
         textAlign: 'center'
 
     },
-    socialLoginView: {
+    forgotView: {
         flexDirection: 'row',
         justifyContent: 'space-around',
         marginBottom: 40,
-        marginTop: 15,
+        marginTop: 25,
+
+    },
+    forgotTouch: {
+
+    },
+    forgotText: {
 
     },
     cLogo: {
