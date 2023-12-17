@@ -4,9 +4,12 @@ import Icon from "react-native-vector-icons/Ionicons";
 import { weatherDetailScreenStyle } from './weatherDetailScreenStyles';
 
 export default function WeatherDetailsScreen(props) {
+
     const [data, setData] = useState("");
     const [currentDate, setCurrentDate] = useState('');
     const [currentTime, setCurrentTime] = useState('');
+    const [dayName, setDayName] = useState('');
+
     const { name } = props.route.params;
     const MyData = ({ value, title }) =>
         <View>
@@ -33,26 +36,41 @@ export default function WeatherDetailsScreen(props) {
         return () => clearInterval(intervalId);
     }, []);
 
+    useEffect(() => {
+        const getCurrentDayName = () => {
+            const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const currentDate = new Date();
+            const dayIndex = currentDate.getDay();
+            const currentDayName = daysOfWeek[dayIndex];
+            setDayName(currentDayName);
+        };
+
+        getCurrentDayName();
+    }, []);
+
     return (
         <View style={weatherDetailScreenStyle.container}>
 
-            <Text style={weatherDetailScreenStyle.cityName}>{name}</Text>
+
             {
                 data ? (
                     <View>
-                        <View>
+                        <View style={weatherDetailScreenStyle.cityView}>
+                            <Text style={weatherDetailScreenStyle.cityName}>{name}, {(data['sys']['country'])} </Text>
                             <Text style={weatherDetailScreenStyle.data1}>{data['weather'][0]['description']}</Text>
-                        </View>
-                        <View>
-                            <Text style={weatherDetailScreenStyle.data1}>{(data['main']['temp'] - 273).toFixed(2)}&deg; C</Text>
+                            <Text style={weatherDetailScreenStyle.temperature}>{(data['main']['temp'] - 273).toFixed(0)}&deg; C</Text>
                         </View>
                     </View>
 
                 ) : null
             }
 
-            <Text>{currentDate}</Text>
-            <Text>{currentTime}</Text>
+            {/* <Text>{currentDate}</Text> */}
+            <View style={weatherDetailScreenStyle.dayDateView}>
+                <Text style={weatherDetailScreenStyle.day}>{dayName}</Text>
+                <Text style={weatherDetailScreenStyle.date}>{currentTime}</Text>
+            </View>
+
 
             {
                 data ? (
@@ -75,11 +93,11 @@ export default function WeatherDetailsScreen(props) {
                             <View style={weatherDetailScreenStyle.element1}>
 
                                 <Text style={weatherDetailScreenStyle.valueTitle}>Wind speed</Text>
-                                <Text style={weatherDetailScreenStyle.value}>{(data['wind']['speed'])}</Text>
+                                <Text style={weatherDetailScreenStyle.value}>{(data['wind']['speed']).toFixed(0)} km/hr</Text>
                             </View>
                             <View style={weatherDetailScreenStyle.element1}>
                                 <Text style={weatherDetailScreenStyle.valueTitle}>Pressure</Text>
-                                <Text style={weatherDetailScreenStyle.value}>{(data['main']['pressure'])}</Text>
+                                <Text style={weatherDetailScreenStyle.value}>{(data['main']['pressure'])} Pha</Text>
                             </View>
                         </View>
 
@@ -87,12 +105,38 @@ export default function WeatherDetailsScreen(props) {
                             <View style={weatherDetailScreenStyle.element1}>
 
                                 <Text style={weatherDetailScreenStyle.valueTitle}>Feels like</Text>
-                                <Text style={weatherDetailScreenStyle.value}>{(data['main']['feels_like'])}</Text>
+                                <Text style={weatherDetailScreenStyle.value}>{(data['main']['feels_like']- 273).toFixed(0)}&deg; C</Text>
                             </View>
                             <View style={weatherDetailScreenStyle.element1}>
 
                                 <Text style={weatherDetailScreenStyle.valueTitle}>Visibility</Text>
-                                <Text style={weatherDetailScreenStyle.value}>{(data['visibility'])}</Text>
+                                <Text style={weatherDetailScreenStyle.value}>{(data['visibility'] / 1000 )} km</Text>
+                            </View>
+                        </View>
+
+                        <View style={weatherDetailScreenStyle.row1}>
+                            <View style={weatherDetailScreenStyle.element1}>
+
+                                <Text style={weatherDetailScreenStyle.valueTitle}>Humidity</Text>
+                                <Text style={weatherDetailScreenStyle.value}>{(data['main']['humidity'])} %</Text>
+                            </View>
+                            <View style={weatherDetailScreenStyle.element1}>
+
+                                <Text style={weatherDetailScreenStyle.valueTitle}>Sea level</Text>
+                                <Text style={weatherDetailScreenStyle.value}>{(data['main']['sea_level'])} amsl</Text>
+                            </View>
+                        </View>
+
+                        <View style={weatherDetailScreenStyle.row1}>
+                            <View style={weatherDetailScreenStyle.element1}>
+
+                                <Text style={weatherDetailScreenStyle.valueTitle}>Max</Text>
+                                <Text style={weatherDetailScreenStyle.value}>{(data['main']['temp_max']- 273).toFixed(0)}&deg; C</Text>
+                            </View>
+                            <View style={weatherDetailScreenStyle.element1}>
+
+                                <Text style={weatherDetailScreenStyle.valueTitle}>Min</Text>
+                                <Text style={weatherDetailScreenStyle.value}>{(data['main']['temp_min']- 273).toFixed(0)}&deg; C</Text>
                             </View>
                         </View>
 

@@ -6,7 +6,14 @@ export const weatherDetailScreenStyle = StyleSheet.create({
         flex: 1,
         height: deviceHeight,
         width: deviceWidth,
-        backgroundColor: '#999999'
+        backgroundColor: '#999999',
+        //alignItems: 'center',
+    },
+    cityView: {
+        //flex: 2,
+        //flexDirection: 'row',
+        alignItems: 'center'
+
     },
     cityName: {
         fontSize: 40,
@@ -17,10 +24,36 @@ export const weatherDetailScreenStyle = StyleSheet.create({
         fontSize: 22,
         color: '#ffffff'
     },
+    temperature: {
+        fontSize: 50,
+
+    },
+    dayDateView: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        borderBottomWidth: 1,
+        borderBottomColor: 'white',
+        paddingBottom: 10
+
+    },
+    day: {
+        fontSize: 25,
+        color: 'white',
+
+    },
+    date: {
+        fontSize: 25,
+        color: 'white',
+
+    },
+    detailsView: {
+        flex: 4,
+        marginTop: 50
+
+    },
     row1: {
         flexDirection: 'row',
         justifyContent: 'space-around',
-        //borderTopWidth: 1,
         borderBottomWidth: 1,
         borderBottomColor: 'white',
         paddingVertical: 10
