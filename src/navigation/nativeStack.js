@@ -7,6 +7,7 @@ import LoginScreen from "../screens/loginScreen/loginScreen";
 import StartUpScreen from "../screens/startUpScreen/startUpScreen";
 import RegisterScreen from "../screens/registerScreen/registerScreen";
 import StartScreen from "../screens/startScreen/startScreen";
+import FirstLoginScreen from "../screens/firstLoginScreen/firstLoginScreen";
 
 export default function NativeStack() {
 
@@ -19,6 +20,10 @@ export default function NativeStack() {
                     headerShown: false
                 }}
             >
+                <NativeStack.Screen
+                    name="FirstLogin"
+                    component={FirstLoginScreen}
+                />
                 <NativeStack.Screen
                     name="Start"
                     component={StartScreen}
