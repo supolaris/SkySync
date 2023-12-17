@@ -1,6 +1,5 @@
-import { View, Text, Image } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import React, { useEffect, useState } from 'react';
-import Icon from "react-native-vector-icons/Ionicons";
 import { weatherDetailScreenStyle } from './weatherDetailScreenStyles';
 
 export default function WeatherDetailsScreen(props) {
@@ -11,11 +10,13 @@ export default function WeatherDetailsScreen(props) {
     const [dayName, setDayName] = useState('');
 
     const { name } = props.route.params;
-    const MyData = ({ value, title }) =>
-        <View>
-            <Text style={weatherDetailScreenStyle.data1}>{title}</Text>
-            <Text style={weatherDetailScreenStyle.data1}>{value}</Text>
-        </View>
+    const MyData = ({ value, title }) => {
+     date = new Date(value * 1000);
+
+     const hours = date.getHours();
+     const minutes = date.getMinutes();
+     const seconds = date.getSeconds();
+    }
 
     useEffect(() => {
         fetch('https://api.openweathermap.org/data/2.5/weather?q=' + name + '&appid=5568f1b778802f22d2d5ab69ca01aae0')
@@ -70,11 +71,9 @@ export default function WeatherDetailsScreen(props) {
                 <Text style={weatherDetailScreenStyle.day}>{dayName}</Text>
                 <Text style={weatherDetailScreenStyle.date}>{currentTime}</Text>
             </View>
-
-
             {
                 data ? (
-                    <View style={weatherDetailScreenStyle.detailsView}>
+                    <ScrollView style={weatherDetailScreenStyle.detailsView}>
 
                         <View style={weatherDetailScreenStyle.row1}>
                             <View style={weatherDetailScreenStyle.element1}>
@@ -105,12 +104,12 @@ export default function WeatherDetailsScreen(props) {
                             <View style={weatherDetailScreenStyle.element1}>
 
                                 <Text style={weatherDetailScreenStyle.valueTitle}>Feels like</Text>
-                                <Text style={weatherDetailScreenStyle.value}>{(data['main']['feels_like']- 273).toFixed(0)}&deg; C</Text>
+                                <Text style={weatherDetailScreenStyle.value}>{(data['main']['feels_like'] - 273).toFixed(0)}&deg; C</Text>
                             </View>
                             <View style={weatherDetailScreenStyle.element1}>
 
                                 <Text style={weatherDetailScreenStyle.valueTitle}>Visibility</Text>
-                                <Text style={weatherDetailScreenStyle.value}>{(data['visibility'] / 1000 )} km</Text>
+                                <Text style={weatherDetailScreenStyle.value}>{(data['visibility'] / 1000)} km</Text>
                             </View>
                         </View>
 
@@ -131,16 +130,16 @@ export default function WeatherDetailsScreen(props) {
                             <View style={weatherDetailScreenStyle.element1}>
 
                                 <Text style={weatherDetailScreenStyle.valueTitle}>Max</Text>
-                                <Text style={weatherDetailScreenStyle.value}>{(data['main']['temp_max']- 273).toFixed(0)}&deg; C</Text>
+                                <Text style={weatherDetailScreenStyle.value}>{(data['main']['temp_max'] - 273).toFixed(0)}&deg; C</Text>
                             </View>
                             <View style={weatherDetailScreenStyle.element1}>
 
                                 <Text style={weatherDetailScreenStyle.valueTitle}>Min</Text>
-                                <Text style={weatherDetailScreenStyle.value}>{(data['main']['temp_min']- 273).toFixed(0)}&deg; C</Text>
+                                <Text style={weatherDetailScreenStyle.value}>{(data['main']['temp_min'] - 273).toFixed(0)}&deg; C</Text>
                             </View>
                         </View>
 
-                    </View>
+                    </ScrollView>
                 )
                     : null
             }

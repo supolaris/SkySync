@@ -12,7 +12,8 @@ export const weatherDetailScreenStyle = StyleSheet.create({
     cityView: {
         //flex: 2,
         //flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginTop: 40,
 
     },
     cityName: {
