@@ -6,6 +6,7 @@ import WeatherDetailsScreen from "../screens/weatherDetailScreen/weatherDetailSc
 import LoginScreen from "../screens/loginScreen/loginScreen";
 import StartUpScreen from "../screens/startUpScreen/startUpScreen";
 import RegisterScreen from "../screens/registerScreen/registerScreen";
+import StartScreen from "../screens/startScreen/startScreen";
 
 export default function NativeStack() {
 
@@ -18,6 +19,10 @@ export default function NativeStack() {
                     headerShown: false
                 }}
             >
+                <NativeStack.Screen
+                    name="Start"
+                    component={StartScreen}
+                />
                 <NativeStack.Screen
                     name="Home"
                     component={HomeScreen}
@@ -34,7 +39,7 @@ export default function NativeStack() {
                     name="Login"
                     component={LoginScreen}
                 />
-                
+
                 <NativeStack.Screen
                     name="Weather"
                     component={WeatherDetailsScreen}
