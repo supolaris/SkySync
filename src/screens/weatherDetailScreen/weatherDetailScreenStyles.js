@@ -6,28 +6,24 @@ export const weatherDetailScreenStyle = StyleSheet.create({
         flex: 1,
         height: deviceHeight,
         width: deviceWidth,
-        backgroundColor: '#999999',
-        //alignItems: 'center',
+        backgroundColor: '#bbbbbb',
     },
     cityView: {
-        //flex: 2,
-        //flexDirection: 'row',
-        alignItems: 'center',
-        marginTop: 40,
 
+        alignItems: 'center',
+        marginTop: 30,
     },
     cityName: {
         fontSize: 40,
-        color: '#ffffff',
+        color: '#000000',
         textTransform: 'uppercase'
     },
     data1: {
         fontSize: 22,
-        color: '#ffffff'
+        color: '#000000'
     },
     temperature: {
         fontSize: 50,
-
     },
     dayDateView: {
         flexDirection: 'row',

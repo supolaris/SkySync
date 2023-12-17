@@ -1,10 +1,8 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import HomeScreen from "../screens/homeScreen/homeScreen";
 import WeatherDetailsScreen from "../screens/weatherDetailScreen/weatherDetailScreen";
 import LoginScreen from "../screens/loginScreen/loginScreen";
-import StartUpScreen from "../screens/startUpScreen/startUpScreen";
 import RegisterScreen from "../screens/registerScreen/registerScreen";
 import StartScreen from "../screens/startScreen/startScreen";
 import FirstLoginScreen from "../screens/firstLoginScreen/firstLoginScreen";
@@ -38,15 +36,6 @@ export default function NativeStack() {
                 <NativeStack.Screen
                     name="SecondLogin"
                     component={SecondLoginScreen}
-                />
-                <NativeStack.Screen
-                    name="Home"
-                    component={HomeScreen}
-                />
-
-                <NativeStack.Screen
-                    name="StartUp"
-                    component={StartUpScreen}
                 />
                 <NativeStack.Screen
                     name="Register"

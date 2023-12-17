@@ -1,6 +1,8 @@
 import { View, Text, ScrollView } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { weatherDetailScreenStyle } from './weatherDetailScreenStyles';
+import { currentWeatherApi } from '../../components/currentWeatherApi/currentWeatherApi';
+import WeatherLottie from '../../components/lottie/weatherLottie/weatherLottie';
 
 export default function WeatherDetailsScreen(props) {
 
@@ -19,7 +21,7 @@ export default function WeatherDetailsScreen(props) {
     }
 
     useEffect(() => {
-        fetch('https://api.openweathermap.org/data/2.5/weather?q=' + name + '&appid=5568f1b778802f22d2d5ab69ca01aae0')
+        fetch('https://api.openweathermap.org/data/2.5/weather?q=' + name + '&appid=' + currentWeatherApi)
             .then(res => res.json())
             .then(res => setData(res))
             .catch(err => console.log(err))
@@ -60,6 +62,7 @@ export default function WeatherDetailsScreen(props) {
                             <Text style={weatherDetailScreenStyle.cityName}>{name}, {(data['sys']['country'])} </Text>
                             <Text style={weatherDetailScreenStyle.data1}>{data['weather'][0]['description']}</Text>
                             <Text style={weatherDetailScreenStyle.temperature}>{(data['main']['temp'] - 273).toFixed(0)}&deg; C</Text>
+                            <WeatherLottie />
                         </View>
                     </View>
 
