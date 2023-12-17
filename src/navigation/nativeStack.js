@@ -23,6 +23,10 @@ export default function NativeStack() {
                 }}
             >
                 <NativeStack.Screen
+                    name="Start"
+                    component={StartScreen}
+                />
+                <NativeStack.Screen
                     name="Search"
                     component={SearchScreen}
                 />
@@ -30,7 +34,7 @@ export default function NativeStack() {
                     name="FirstLogin"
                     component={FirstLoginScreen}
                 />
-                
+
                 <NativeStack.Screen
                     name="SecondLogin"
                     component={SecondLoginScreen}
@@ -39,10 +43,7 @@ export default function NativeStack() {
                     name="Home"
                     component={HomeScreen}
                 />
-                <NativeStack.Screen
-                    name="Start"
-                    component={StartScreen}
-                />
+
                 <NativeStack.Screen
                     name="StartUp"
                     component={StartUpScreen}

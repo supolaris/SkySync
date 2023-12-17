@@ -6,9 +6,13 @@ import google from "../../../assets/Google.png";
 import apple from "../../../assets/Apple.png";
 import { secondLoginScreenStyles } from './secondLoginScreenStyles';
 
-export default function SecondLoginScreen() {
+export default function SecondLoginScreen({navigation}) {
 
     const [password, setPassword] = useState('');
+
+    const onSignInPressed = () => {
+        navigation.navigate("Search");
+    }
 
     return (
         <View style={secondLoginScreenStyles.container}>
@@ -34,7 +38,9 @@ export default function SecondLoginScreen() {
                         </TouchableOpacity>
                     </View>
                     <View style={secondLoginScreenStyles.touchView}>
-                        <TouchableOpacity style={secondLoginScreenStyles.touch}>
+                        <TouchableOpacity style={secondLoginScreenStyles.touch}
+                        onPress={onSignInPressed}
+                        >
                             <Text style={secondLoginScreenStyles.touchText}>Sign In</Text>
                         </TouchableOpacity>
                     </View>
